@@ -8,6 +8,10 @@ server.get('/', (req, res) => {
     res.send(`<h2>Let's get this show on the road!</h2>`)
 });
 
+server.use(function(req, res, next){
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+})
 server.use(helmet());
 server.use(express.json());
 
